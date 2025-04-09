@@ -1,0 +1,794 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    background: #121212;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+/* Header */
+header {
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+    background-color:#121212;
+    position: relative;
+}
+
+/* Logo hover animation */
+.logo {
+    font-size: 3.5rem;
+    text-decoration: none;
+    color: #EA002A;
+    transition: transform 0.3s ease, color 0.3s ease;
+    
+}
+
+/* Scale effect when hovering over the logo */
+.logo:hover {
+    transform: scale(2.5); /* Enlarge the logo */
+    color: #ffb3b3; /* Change color on hover */
+}
+
+/* Logo initial animation */
+@keyframes logoEntry {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to the logo */
+.logo {
+    animation: logoEntry 1s ease-out forwards; /* Animation duration and easing */
+}
+
+/* Optional: Add a slight rotation effect on logo hover */
+.logo:hover {
+    transform: scale(2.5) rotate(5deg); /* Scale and rotate slightly on hover */
+}
+
+
+#menu-icon {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Menu items */
+nav {
+    display: flex;
+    gap: 1.5vw;
+    animation: slideIn 1s ease-out;
+}
+
+nav a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1rem;
+    transition: color 0.3s, transform 0.3s;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+nav a:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+nav a:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+nav a:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+nav a:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+nav a:nth-child(5) {
+    animation-delay: 0.10s;
+}
+
+/* Hover effects on links */
+nav a:hover {
+    color: #EA002A;
+    transform: scale(1.1);
+}
+
+/* Animation for sliding menu items */
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Animation for fading in links */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Hover effect on the logo */
+.logo:hover {
+    transform: scale(1.1); /* Slightly enlarge the logo on hover */
+}
+
+/* Bounce effect for menu icon */
+#menu-icon:hover {
+    transform: scale(1.2) rotate(20deg);
+    animation: bounce 0.5s ease-in-out infinite;
+}
+
+/* Bounce animation for the menu icon */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: scale(1.2) rotate(20deg);
+    }
+    40% {
+        transform: scale(1.1) rotate(-20deg);
+    }
+    60% {
+        transform: scale(1.2) rotate(10deg);
+    }
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
+}
+
+.home-detail p {
+    margin-top: 1rem;
+}
+
+.img {
+    width: 50%;
+    max-width: 400px;
+    height: 50%;
+    background: linear-gradient(135deg, #EA002A, #ff4e50); /* Background gradient */
+    border-radius: 50%;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(234, 0, 42, 0.8), 0 0 50px rgba(234, 0, 42, 0.5); /* Glowing border */
+    transition: box-shadow 0.3s ease; /* Smooth transition for glow */
+}
+
+.img::before,
+.img::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.15); /* Light wave effect */
+    border-radius: 45%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    cursor: pointer;
+}
+
+.img::before {
+    animation: wave 6s infinite linear; /* Wave animation 1 */
+    opacity: 0.7;
+}
+
+.img::after {
+    animation: waveReverse 8s infinite linear; /* Wave animation 2 (opposite direction) */
+    opacity: 0.4;
+}
+
+@keyframes wave {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes waveReverse {
+    0% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+.img img {
+    width: 70%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin-left: 2.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Buttons & Socials */
+.btn-sci {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    text-decoration: none;
+    color: #15100d;
+    background-color: #EA002A;
+    border-radius: 40px;
+    padding: 0.7rem 1.5rem;
+    box-shadow: 0 0 15px 5px #EA002A;
+}
+
+.sci {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.sci a i {
+    color: #EA002A;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    padding: 0.5rem;
+    transition: 0.3s;
+}
+
+.sci a i:hover {
+    box-shadow: 0 0 10px 5px #EA002A;
+}
+
+/* Services Section */
+.service {
+    text-align: center;
+    margin-top: 3rem;
+    color: #EA002A;
+}
+
+.service h6 {
+    text-decoration: none;
+    outline: none;
+    font-size: 3rem;
+    font-weight: 2rem;
+    color: #EA002A;
+}
+
+/* Service container styles */
+.service-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    width: 80%;
+    cursor: pointer;
+}
+
+/* Service box styles */
+.service-box {
+    width: 30%;
+    min-width: 250px;
+    background-color: #EA002A;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 5px #EA002A;
+    transition: 0.5s;
+    opacity: 0; /* Start as hidden */
+    transform: translateY(30px); /* Start slightly below */
+}
+
+/* Hover effect */
+.service-box:hover {
+    scale: 1;
+}
+
+/* Service icon styles */
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Animation for service box when it comes into view */
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add animation class dynamically when the element comes into view */
+.service-box.animate {
+    animation: slideInUp 1s ease-out forwards;
+}
+
+/* Optional: Adding a fade-in effect to the service section when it comes into view */
+@keyframes fadeInService {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.service-container {
+    animation: fadeInService 1.5s ease-out;
+}
+
+/*Resuma*/
+.resuma {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 3rem;
+    gap: 2rem;
+    background-color: #0f0f0f;
+    color: white;
+    border-radius: 12px;
+}
+
+.resuma1 {
+    width: 30%;
+    text-align: left;
+}
+
+.btn1 {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 2px solid transparent;
+    background-color: #1a1a1a;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn1:hover, .btn1.active {
+    border-color: #EA002A;;
+    color:  #EA002A;;
+    background-color: #222;
+}
+
+.about-me {
+    width: 70%;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px  #EA002A;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Experience and Education Boxes */
+.exp-container, .edu-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+}
+
+.exp-box, .edu-box {
+    width: calc(50% - 1rem);
+    background-color: #222;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px  #EA002A;
+    transition: transform 0.3s ease-in-out;
+}
+
+.exp-box:hover, .edu-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px  #EA002A;
+}
+
+.exp-box h4, .edu-box h4 {
+    color:  #EA002A;;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Skills Section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.skill-logo {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px  #EA002A;
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px  #EA002A;
+}
+
+.skill-logo img {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0px 2px 5px  #EA002A);
+}
+.section-desc{
+    margin-top: 2rem;
+}
+.section-title{
+    font-size: 2.5rem;
+}
+.resuma1 h4{
+    font-size: 2.5rem;
+}
+.education-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+.experience-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+
+
+/* Customize the scrollbar track (background) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the scrollbar for horizontal scroll */
+}
+
+/* Customize the scrollbar itself */
+::-webkit-scrollbar-thumb {
+    background-color: #EA002A; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Customize the scrollbar track (the background area where the thumb slides) */
+::-webkit-scrollbar-track {
+    background: #302b2be2; /* Light color for the track */
+    border-radius: 10px; /* Optional: Rounded corners for the track */
+}
+
+/* Project Section */
+.project {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 2rem;
+    color: #EA002A;
+}
+
+.project h6 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #EA002A;
+    text-transform: uppercase;
+}
+
+/* Service Container */
+.service-container1 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem auto;
+    width: 80%;
+}
+
+/* Service Box (Project Box) */
+.service-box1 {
+    width: 30%;
+    min-width: 250px; /* Prevent too small images */
+    background-color: #121212;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #EA002A;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+}
+
+.service-box1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Image Style */
+.service-box1 img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000; /* Black background */
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 0 0 15px 5px #EA002A;
+}
+
+.contact-container {
+    display: flex;
+    width: 80%;
+    background: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 5px #EA002A;
+    overflow: hidden;
+}
+
+.contact-info, .contact-form {
+    padding: 30px;
+    flex: 1;
+}
+
+.contact-info {
+    background: #181818;
+    border-right: 2px solid #2a2a2a;
+    box-shadow: 0 0 15px 5px #EA002A;
+}
+
+.contact-info h2, .contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-info .info-box {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.contact-info .info-box i {
+    font-size: 20px;
+    color: #EA002A;
+    margin-right: 10px;
+}
+
+.contact-form h2 span {
+    color: #EA002A;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-box input, textarea {
+    width: 100%;
+    padding: 10px;
+    background: #2a2a2a;
+    border: 1px solid #EA002A;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 15px 5px #EA002A;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button {
+    background: #EA002A;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 15px 5px #EA002A;
+}
+
+button:hover {
+    background: #EA002A;
+}
+
+.white-text {
+    color: white;
+}
+
+.red-text {
+    color: #EA002A;
+}
+
+
+/* Footer Section */
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #121212;
+    border: 2px solid black;
+    width: 100%;
+    height: 5vh;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 5px #EA002A;
+}
+
+.footer p {
+    color: white;
+    font-size: 1rem;
+}
+
+.footer p span {
+    color: #EA002A;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 1.5rem;
+    }
+
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 8vh;
+        left: 0;
+        width: 100%;
+        background: #15100d;
+        text-align: center;
+    }
+
+    nav a {
+        display: block;
+        padding: 1rem;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .img {
+        width: 80%;
+        max-width: 300px;
+        padding: 1.5rem;
+        
+    }
+
+    .service-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-box {
+        width: 90%;
+    }
+    .resuma {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .resuma1, .about-me {
+        width: 90%;
+    }
+    .resuma {
+        flex-direction: column;
+        align-items: center;
+    }
+    .resuma1, .about-me {
+        width: 100%;
+    }
+    .exp-box, .edu-box {
+        width: 100%;
+    }
+    .contact-container {
+        flex-direction: column;
+        margin-top: 4rem;
+    }
+
+    .contact-info {
+        border-right: none;
+        border-bottom: 2px solid #2a2a2a;
+        text-align: center;
+    }
+
+    .input-box {
+        flex-direction: column;
+    }
+    .footer {
+        height: 8vh; 
+    }
+
+    .footer p {
+        font-size: 1rem; /* Set font size for tablets */
+        text-align: center; /* Center text */
+    }
+    .service-container1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-box1 {
+        width: 90%;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contact-info, .contact-form {
+        width: 100%;
+    }
+    .education-container,
+    .experience-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+   
+}
+
+
+
