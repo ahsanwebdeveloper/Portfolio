@@ -114,7 +114,6 @@ const skills = [
     " Frontend Developer",
     " Shopify Developer",
     " UI/UX Designer",
-    " Backend Developer",
     " Web Designer",
     " SEO Expert",
 ];
